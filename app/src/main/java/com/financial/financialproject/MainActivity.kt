@@ -1,11 +1,11 @@
-package com.example.financialproject
+package com.financial.financialproject
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.financialproject.databinding.ActivityMainBinding
+import com.financial.financialproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,8 +23,8 @@ class MainActivity : AppCompatActivity() {
 
 
     fun signIn(view : View) : Unit{
-        val userName = binding.tilMail.editText.toString()
-        val password = binding.tilPassword.editText.toString()
+        val userName = binding.tilMail.editText?.text.toString()
+        val password = binding.tilPassword.editText?.text.toString()
 
         if (userName == "" || password =="") {
             Toast.makeText(this,"Lütfen tüm alanları doldurun.", Toast.LENGTH_LONG).show()
@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun signUp(view : View) : Unit{
-        var userName = binding.tilMail.editText.toString()
-        var password = binding.tilPassword.editText.toString()
+        var userName = binding.tilMail.editText?.text.toString()
+        var password = binding.tilPassword.editText?.text.toString()
 
         if (userName == "" || password == "") {
             Toast.makeText(this,"Lütfen tüm alanları doldurun.", Toast.LENGTH_LONG).show()

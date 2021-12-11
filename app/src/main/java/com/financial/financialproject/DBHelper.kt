@@ -1,4 +1,4 @@
-package com.example.financialproject
+package com.financial.financialproject
 
 import android.content.ContentValues
 import android.content.Context

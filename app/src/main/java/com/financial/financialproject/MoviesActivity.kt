@@ -1,16 +1,14 @@
-package com.example.financialproject
+package com.financial.financialproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Adapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.RequestQueue
-import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.example.financialproject.databinding.ActivityMoviesBinding
+import com.financial.financialproject.databinding.ActivityMoviesBinding
 import org.json.JSONObject
 
 class MoviesActivity : AppCompatActivity() {
@@ -36,8 +34,7 @@ class MoviesActivity : AppCompatActivity() {
 
     fun fetchData() {
 
-
-        val url = "https://api.themoviedb.org/3/movie/top_rated?api_key=3fdabc3c6368a99f773e4536a7d48e2f"
+        val url = getString(R.string.key)
         val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
                 { response ->
                     val jsonArray = response.getJSONArray("results")
@@ -45,7 +42,7 @@ class MoviesActivity : AppCompatActivity() {
                         var obje : JSONObject = jsonArray.getJSONObject(i)
 
                         var title = obje.getString("title")
-                        list.add(MovieItem(obje.getString("title"),obje.getString("poster_path")))
+                        list.add(MovieItem(obje.getString("title"),obje.getString("poster_path"),obje.getString("overview")))
                     }
 
                     mAdapter = MyAdapter(this,list)

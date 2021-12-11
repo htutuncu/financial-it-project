@@ -1,10 +1,9 @@
-package com.example.financialproject
+package com.financial.financialproject
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -15,10 +14,12 @@ class MyAdapter(val context : Context, val movieList : MutableList<MovieItem>) :
     class ModelViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val movieName : TextView = view.findViewById(R.id.tv_movie_name)
         val imageUrl : ImageView = view.findViewById(R.id.image_view)
+        val desc : TextView = view.findViewById(R.id.tv_movie_desc)
 
 
         fun bindItems(item: MovieItem) {
             movieName.setText(item.getName())
+            desc.setText(item.mDesc)
             val url = "https://image.tmdb.org/t/p/original" + item.mImageUrl
             Picasso.with(itemView.context).load(url).fit().centerInside().into(imageUrl)
         }

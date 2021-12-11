@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.financialproject">
+    package="com.financial.financialproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinancialProject">
-        <activity android:name=".MoviesActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name="com.financial.financialproject.MoviesActivity"></activity>
+        <activity android:name="com.financial.financialproject.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
