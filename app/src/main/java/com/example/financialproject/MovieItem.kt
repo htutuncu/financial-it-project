@@ -6,8 +6,8 @@ class MovieItem(name: String, imageUrl : String) {
     var mImageUrl : String = ""
 
     init {
-        mName = name
-        mImageUrl = imageUrl
+        mName =  name
+        mImageUrl =  imageUrl
     }
 
     fun getName() : String {
