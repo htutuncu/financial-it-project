@@ -1,7 +1,9 @@
 package com.financial.financialproject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -9,6 +11,9 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.financial.financialproject.databinding.ActivityMoviesBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import org.json.JSONObject
 
 class MoviesActivity : AppCompatActivity() {
@@ -17,6 +22,7 @@ class MoviesActivity : AppCompatActivity() {
     lateinit var mRequestQueue : RequestQueue
     lateinit var mRecyclerView: RecyclerView
     lateinit var mAdapter: MyAdapter
+    private lateinit var auth : FirebaseAuth
     val list : MutableList<MovieItem> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +34,13 @@ class MoviesActivity : AppCompatActivity() {
         mRecyclerView.setHasFixedSize(true)
         mRecyclerView.layoutManager = LinearLayoutManager(this)
 
+        auth = Firebase.auth
+
+        binding.btnSignOut.setOnClickListener {
+            auth.signOut()
+            Toast.makeText(this,"Çıkış Yapıldı.",Toast.LENGTH_LONG).show()
+            startActivity(Intent(this,MainActivity::class.java))
+        }
 
         fetchData()
     }
